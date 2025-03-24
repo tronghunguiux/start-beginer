@@ -1,0 +1,10 @@
+node-api/node_modules/
+node-api/.env
+node-api/.env.dev
+node-api/.env.staging
+node-api/.env.prod
+
+node-api/package-lock.json
+
+**/*/.DS_Store
+.DS_Store

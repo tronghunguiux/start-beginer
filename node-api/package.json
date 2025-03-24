@@ -1,0 +1,22 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "beginner node backend api with nodejs",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "node src/server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "backend-api"
+  ],
+  "author": "tronghung.uiux",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
