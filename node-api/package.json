@@ -2,7 +2,6 @@
   "name": "node-api",
   "version": "1.0.0",
   "privte": true,
-  "type": "module",
   "description": "beginner node backend api with nodejs",
   "engines": {
     "node": ">=14.17.0"
@@ -13,10 +12,10 @@
     "main": "node src/server.js",
     "eslint": "eslint src --ext js report-unused-disable-directives --max-warnings=0",
     "clean": "rm -rf dist && mkdir dist",
-    "build:babel": "babel ./src -d ./dist/src",
+    "build:babel": "babel ./src -d ./dist",
     "build": "npm run clean && npm run build:babel",
-    "production": "npm run build && node ./dist/src/server.js",
-    "dev": "nodemon src/server.js"
+    "production": "npm run build && node ./dist/server.js",
+    "dev": "nodemon --exec babel-node ./src/server.js"
   },
   "keywords": [
     "nodejs",
