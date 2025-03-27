@@ -1,13 +1,20 @@
 import express from 'express';
 import AsyncExitHook from 'async-exit-hook';
-import { CONNECT_DB, CLOSE_DB } from './config/mongodb.js';
+import { CONNECT_DB, CLOSE_DB, GET_DATABASE } from './config/mongodb.js';
 import { env } from '~/config/environment.js';
+import { APIv1 } from './routes/v1/index.js';
 
 const app = express();
 const localhost = env.LOCALHOST || '127.0.0.1';
 const port = env.PORT || 3000;
 
 const START_SERVER = () => {
+  // Enable JSON parsing data request body
+  app.use(express.json());
+  
+  // use APIsv1 
+  app.use('/v1', APIv1);
+
   app.get('/', async (req, res) => {
     // console.log(await GET_DATABASE().listCollections().toArray());
     res.send('Hello World!');
