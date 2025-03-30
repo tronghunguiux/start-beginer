@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const env = {
+    BUILD_MODE: process.env.NODE_ENV || 'development',
     URI_CONNECT: process.env.MONGODB_URI || 'INPUT_YOUR_URI',
     DATABASE_NAME: process.env.DATABASE_NAME || 'INPUT_YOUR_DATABASE_NAME',
     DATABASE_USER: process.env.MONGODB_USER || 'root',
