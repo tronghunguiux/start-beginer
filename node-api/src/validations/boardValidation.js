@@ -1,30 +1,30 @@
 import Joi from "joi";
 import { StatusCodes } from "http-status-codes";
+import ApiError from "~/utils/apiError";
 
 const createNew = async (req, res, next) => {
     const correctObject = Joi.object({
         title: Joi.string().required().min(3).max(50).trim().strict().message({
-
+            'any.reuqeired': 'Title is required',
+            'string.empty': 'Title must not be empty',
+            'string.min': 'Title must be at least 3 characters long',
+            'string.max': 'Title must be at most 50 characters long',
+            'string.trim': 'Title must not have leading or trailing whitespace',
         }),
         description: Joi.string().required().min(3).max(255).trim().strict(),
     });
 
     try{
-        console.log('req.body: ', req.body);
-        
         // abortEarly = false: return all errors not just the first one || default is true
         await correctObject.validateAsync(req.body, {abortEarly: false});
-        // next();
-        res.status(StatusCodes.CREATED).json({message: 'Status post!'});
+        next();
     }catch(e){
-        console.log(`conditions check error: ${e}`);
-        console.log(new Error(`Invalid data ${e}`));
-        res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({errors: new Error(`Invalid data ${e}`).message});
-        // status 400 || 422
+        const errorMessage = new Error(e.message)
+        const customError = new ApiError(StatusCodes.UNPROCESSABLE_ENTITY, errorMessage);
+        next(customError);
     }
 };
 // const createNew = () => { };
-
 export const boardValidation = {
     createNew
 };

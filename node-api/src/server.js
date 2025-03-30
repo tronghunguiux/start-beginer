@@ -3,6 +3,8 @@ import AsyncExitHook from 'async-exit-hook';
 import { CONNECT_DB, CLOSE_DB, GET_DATABASE } from './config/mongodb.js';
 import { env } from '~/config/environment.js';
 import { APIv1 } from './routes/v1/index.js';
+import { StatusCodes } from 'http-status-codes';
+import { errorHandlingMiddleware } from '~/middlewares/errorHandlingMiddleware.js';
 
 const app = express();
 const localhost = env.LOCALHOST || '127.0.0.1';
@@ -15,10 +17,13 @@ const START_SERVER = () => {
   // use APIsv1 
   app.use('/v1', APIv1);
 
-  app.get('/', async (req, res) => {
-    // console.log(await GET_DATABASE().listCollections().toArray());
-    res.send('Hello World!');
-  });
+// Error handling middleware handling all errors
+app.use(errorHandlingMiddleware);
+
+  // app.get('/', async (req, res) => {
+  //   // console.log(await GET_DATABASE().listCollections().toArray());
+  //   res.send('Hello World!');
+  // });
   app.listen(port, () => {
     console.log(`3. Server is running on port http://${localhost + ':' + port}`);
   });
