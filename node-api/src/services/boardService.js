@@ -2,6 +2,8 @@
 // import ApiError from '~/utils/ApiError';
 import { slugify } from '~/utils/formatters';
 import { boardModel } from '~/models/boardModel';
+import ApiError from '~/utils/ApiError';
+import { StatusCodes } from 'http-status-codes';
 const createNew = async (reqBody) => {
   try {
     // emulator error
@@ -13,17 +15,26 @@ const createNew = async (reqBody) => {
     };
     // Gọi tới tầng Model để lưu vào Database
     const createdBoard = await boardModel.createBoard(newBoard);
-    // console.log('createBoard:', createdBoard);
 
     // get data from new board by _Id (idOject of MongoDB) 
     const getNewBoard = await boardModel.findOneById(createdBoard.insertedId);
-    // console.log('getNewBoard:', getNewBoard);
-
     return getNewBoard;
   }
   catch (e) { throw e }
 };
 
+const getDetails = async (boardId) => {
+  try {
+    const board = await boardModel.getDetails(boardId);
+    if (!board) {
+      throw new ApiError(StatusCodes.NOT_FOUND, 'board not found!');
+    }
+    return board;
+  }
+  catch (e) { throw e }
+};
+
 export const boardService = {
-  createNew
+  createNew,
+  getDetails
 }

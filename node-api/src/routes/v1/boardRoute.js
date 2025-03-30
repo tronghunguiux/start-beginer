@@ -16,4 +16,13 @@ Router.route('/')
         res.status(StatusCodes.OK).json({message: 'Status delete!'});
     }); 
 
+Router.route('/:id')
+    .get(boardController.getDetails)
+    .put((req, res)=>{
+
+    })
+    .delete((req, res)=>{
+
+    });
+
 export const boardRoute = Router;
