@@ -1,10 +1,22 @@
+
+/.pnp
+node-api/.pnp.js
+node-api/.pnp.cjs
+node-api/pnpify/
+
 node-api/node_modules/
 node-api/.env
 node-api/.env.dev
 node-api/.env.staging
 node-api/.env.prod
-
 node-api/package-lock.json
+# node-api/yarn.lock
+node-api/npm-debug.log*
+# node-api/yarn-debug.log*
 
+# Testing
+node-api/coverage/
+
+node-api/dist/
 **/*/.DS_Store
 .DS_Store
