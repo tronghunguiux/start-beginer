@@ -20,3 +20,42 @@ node-api/coverage/
 node-api/dist/
 **/*/.DS_Store
 .DS_Store
+
+###### ----------------------------------
+#### FE
+
+react_vite-frontends/dist/
+react_vite-frontends/dist-ssr/
+react_vite-frontends/build/
+react_vite-frontends/node_modules/
+react_vite-frontends/.env
+react_vite-frontends/.env.dev
+react_vite-frontends/.env.staging
+react_vite-frontends/.env.prod
+
+# Logs
+react_vite-frontends/logs
+react_vite-frontends/*.log
+react_vite-frontends/npm-debug.log*
+react_vite-frontends/yarn-debug.log*
+react_vite-frontends/yarn-error.log*
+react_vite-frontends/pnpm-debug.log*
+react_vite-frontends/lerna-debug.log*
+
+react_vite-frontends/node_modules
+react_vite-frontends/padckage-lock.json
+react_vite-frontends/dist
+react_vite-frontends/dist-ssr
+react_vite-frontends/*.local
+react_vite-frontends/package-lock.json
+
+# Editor directories and files
+react_vite-frontends/.vscode/*
+react_vite-frontends/!.vscode/extensions.json
+react_vite-frontends/.idea
+react_vite-frontends/.DS_Store
+react_vite-frontends/*.suo
+react_vite-frontends/*.ntvs*
+react_vite-frontends/*.njsproj
+react_vite-frontends/*.sln
+react_vite-frontends/*.sw?
