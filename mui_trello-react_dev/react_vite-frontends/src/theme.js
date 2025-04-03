@@ -4,23 +4,11 @@ import { cyan, deepOrange, orange, red, teal } from '@mui/material/colors'
 import {experimental_extendTheme as extendTheme} from '@mui/material/styles'
 import { createTheme } from '@mui/material/styles'
 
-// Create a theme instance.
-// const theme = createTheme({
-//   cssVariables: true,
-//   palette: {
-//     primary: {
-//       main: '#556cd6',
-//     },
-//     secondary: {
-//       main: '#19857b',
-//     },
-//     error: {
-//       main: red.A400,
-//     },
-//   },
-// });
-
 const theme = extendTheme({
+  trello: {
+    topBarHeight: '48px',
+    secondBarHeight: '58px'
+  },
   cssVariables: true,
   colorSchemeSelector: 'class',
   colorSchemes:  { 
