@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
   </head>
+  <script>
+    // Kiểm tra chế độ đã lưu trong localStorage hoặc chế độ hệ thống
+    const storedMode = localStorage.getItem('colorScheme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialMode = storedMode || (systemPrefersDark ? 'dark' : 'light');
+
+    // Áp dụng class vào thẻ <html> ngay lập tức
+    document.documentElement.classList.add(initialMode);
+  </script>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

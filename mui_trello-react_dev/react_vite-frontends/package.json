@@ -11,6 +11,10 @@
     "prod": "vite build && vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
