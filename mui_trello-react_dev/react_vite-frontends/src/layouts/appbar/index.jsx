@@ -1,4 +1,4 @@
-import ModeTheme from '../../layouts/mode-theme'
+import ModeTheme from '~/layouts/mode-theme'
 import { Box } from '@mui/material';
 
 export default function AppBar() {
