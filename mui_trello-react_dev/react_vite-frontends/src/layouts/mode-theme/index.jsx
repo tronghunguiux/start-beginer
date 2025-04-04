@@ -10,7 +10,7 @@ export default function ToggleTheme() {
         {/* <div>
           {mode}
         </div> */}
-        <FormControl  sx={{ m: 1, minWidth: 120 }} size='small'>
+        <FormControl size='small' sx={{minWidth: '120px'}}>
           <InputLabel id='label-select-dark-light-mode'> Theme </InputLabel>
           <Select
             defaultValue={30}

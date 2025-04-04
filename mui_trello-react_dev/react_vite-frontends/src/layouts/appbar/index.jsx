@@ -7,19 +7,20 @@ import RecentBar from '~/layouts/appbar/menus/recent'
 import StartedBar from '~/layouts/appbar/menus/started'
 import ProfileBar from '~/layouts/appbar/menus/profiles'
 import TemplatesBar from '~/layouts/appbar/menus/templates'
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 export default function AppBar() {
   return (
     <>
       {/* Top bar */}
-      <Box sx={{
-        backgroundColor: 'white',
+      <Box px={2} sx={{
         width: '100%',
         height: (theme) => theme.trello.topBarHeight,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        gap: '2px',
+        overflowX: 'auto'
       }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
           <AppsIcon sx={{ color: 'primary.main' }} />
@@ -27,27 +28,28 @@ export default function AppBar() {
             <img src={trelloLogo} alt="Logo" />
             <Typography variant='span' sx={{fontSize: '1.25rem', fontWeight: 'bold', color: 'primary.main'}}>Trello</Typography>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5px' }}>
-            <WorkspacesBar/>
-            <RecentBar/>
-            <StartedBar/>
-            <TemplatesBar/>
-          </Box>
-          <Box>
-            <Button variant='outlined'>CREATE NEW</Button>
+          <Box sx={{
+            display: ()=>({xs: 'none', md: 'flex'}),
+            gap: 1
+          }}>
+              <WorkspacesBar/>
+              <RecentBar/>
+              <StartedBar/>
+              <TemplatesBar/>
+              <Button variant='outlined'>Create</Button>
           </Box>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-          <TextField id="outlined-search" label="Search..." type="search" size='small' />
+          <TextField id="outlined-search" label="Search..." type="search" size='small' sx={{minWidth: '120px'}}/>
           <ModeTheme />
           <Tooltip title="Notication">
             <Badge color="secondary" variant="dot" sx={{cursor: 'pointer'}}>
-              <NotificationsIcon />
+              <NotificationsNoneIcon sx={{color: 'primary.main'}}/>
             </Badge>
           </Tooltip>
           <Tooltip title="Help/Quote">
-            <HelpOutlineIcon sx={{cursor: 'pointer'}}/>
+            <HelpOutlineIcon sx={{color: 'primary.main'}}/>
           </Tooltip>
           <Box>
             <ProfileBar/>
