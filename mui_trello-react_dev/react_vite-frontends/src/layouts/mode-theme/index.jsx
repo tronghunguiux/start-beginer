@@ -7,10 +7,10 @@ export default function ToggleTheme() {
     const handleChange = (ev) =>{ setMode(ev.target.value) }
     return (
       <>
-        <div>
+        {/* <div>
           {mode}
-        </div>
-        <FormControl  sx={{ m: 1, minWidth: 120 }} size='small'>
+        </div> */}
+        <FormControl size='small' sx={{minWidth: '120px'}}>
           <InputLabel id='label-select-dark-light-mode'> Theme </InputLabel>
           <Select
             defaultValue={30}
