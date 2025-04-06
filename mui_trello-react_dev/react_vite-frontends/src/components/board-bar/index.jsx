@@ -11,16 +11,16 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const CHIPTAG_STYLES = {
-  color: 'primary.main',
+  color: 'white',
   paddingX: '5px',
   border: 'none',
-  bgcolor: 'white',
+  backgroundColor: 'transparent',
   borderRadius: '4px',
-  '& .MuiSvgIcon-root': { color: 'primary.main' },
+  '.MuiSvgIcon-root': { color: 'white' },
   '&:hover': { bgcolor: 'primary.50' }
 }
 const AVATAR_STYLES = {
-  width: '34px', height: '34px', fontSize: '1rem'
+  width: '34px', height: '34px', fontSize: '1rem', borderWidth: '1px', 
 }
 
 export default function BoardBar() {
@@ -36,7 +36,8 @@ export default function BoardBar() {
         gap: '2px',
         paddingX: 2,
         overflowX: 'auto',
-        borderTop: '1px solid #00bfa5'
+        borderBottom: '1px solid white',
+        backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
       }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
           <Chip icon={<DashboardIcon />} label={'dashboard icon'} onClick={() => ({})}
@@ -51,11 +52,12 @@ export default function BoardBar() {
             sx={CHIPTAG_STYLES} />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-          <Button variant='outlined' startIcon={<PersonAddIcon/>}>Invite</Button>
+          <Button variant='outlined' startIcon={<PersonAddIcon/>} sx={{color: 'white', borderColor: 'white', '&:hover': {borderColor: 'white'}}}>Invite</Button>
           <AvatarGroup
             // total={24}
             max={4}
             sx={{
+              gap: '10px',
               '& .MuiAvatar-root': AVATAR_STYLES
             }}
           >

@@ -27,7 +27,8 @@ export default function WorkspacesBar() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-            endIcon={<ExpandMoreIcon/>}>
+            endIcon={<ExpandMoreIcon/>}
+            sx={{color: 'white'}}>
             Workspaces
           </Button>
           <Menu

@@ -27,7 +27,8 @@ export default function RecentBar() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-            endIcon={<ExpandMoreIcon />}>
+            endIcon={<ExpandMoreIcon />}
+            sx={{color: 'white'}}>
             Recent
           </Button>
           <Menu

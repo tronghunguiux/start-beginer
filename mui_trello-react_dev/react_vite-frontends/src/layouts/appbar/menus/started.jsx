@@ -27,7 +27,8 @@ export default function StartedBar() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-            endIcon={<ExpandMoreIcon />}>
+            endIcon={<ExpandMoreIcon />}
+            sx={{color: 'white'}}>
             Started
           </Button>
           <Menu
