@@ -1,10 +1,7 @@
 
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 import React from 'react'
-import { Avatar, Box, Divider, IconButton, Menu, MenuItem, Tooltip } from '@mui/material'
+import { Avatar, Box, Divider, IconButton, Menu, MenuItem, Tooltip, ListItemIcon } from '@mui/material'
 import { Logout, PersonAdd, Settings } from '@mui/icons-material'
-import ListItemIcon from '@mui/material/ListItemIcon'
 
 export default function ProfileBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);

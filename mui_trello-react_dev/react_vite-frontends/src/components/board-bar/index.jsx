@@ -1,26 +1,25 @@
-import { Box, Button } from '@mui/material';
-import Chip from '@mui/material/Chip';
+
+import { Box, Button, Chip, Avatar,AvatarGroup, Tooltip } from '@mui/material';
+
+// import icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import VpnLockIcon from '@mui/icons-material/VpnLock';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import BoltIcon from '@mui/icons-material/Bolt';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
-import Tooltip from '@mui/material/Tooltip';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const CHIPTAG_STYLES = {
-  color: 'primary.main',
+  color: 'white',
   paddingX: '5px',
   border: 'none',
-  bgcolor: 'white',
+  backgroundColor: 'transparent',
   borderRadius: '4px',
-  '& .MuiSvgIcon-root': { color: 'primary.main' },
-  '&:hover': { bgcolor: 'primary.50' }
+  '.MuiSvgIcon-root': { color: 'white' },
+  '&:hover': { bgcolor: 'primary.50' },
 }
 const AVATAR_STYLES = {
-  width: '34px', height: '34px', fontSize: '1rem'
+  width: '34px', height: '34px', fontSize: '1rem', borderWidth: '1px', 
 }
 
 export default function BoardBar() {
@@ -36,7 +35,8 @@ export default function BoardBar() {
         gap: '2px',
         paddingX: 2,
         overflowX: 'auto',
-        borderTop: '1px solid #00bfa5'
+        borderBottom: '1px solid white',
+        backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
       }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
           <Chip icon={<DashboardIcon />} label={'dashboard icon'} onClick={() => ({})}
@@ -51,12 +51,22 @@ export default function BoardBar() {
             sx={CHIPTAG_STYLES} />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-          <Button variant='outlined' startIcon={<PersonAddIcon/>}>Invite</Button>
+          <Button variant='outlined' startIcon={<PersonAddIcon/>} sx={{color: 'white', borderColor: 'white', '&:hover': {borderColor: 'white'}}}>Invite</Button>
           <AvatarGroup
             // total={24}
             max={4}
             sx={{
-              '& .MuiAvatar-root': AVATAR_STYLES
+              gap: '10px',
+              '& .MuiAvatar-root': {
+                width: '34px',
+                height: '34px',
+                fontSize: '1rem',
+                borderWidth: '1px',
+                borderColor: 'white',
+                borderStyle: 'solid',
+                cursor: 'pointer',
+                '&:first-of-type': {backgroundColor: '#a4b0be'}
+              }
             }}
           >
             <Tooltip title="Remy Sharp">

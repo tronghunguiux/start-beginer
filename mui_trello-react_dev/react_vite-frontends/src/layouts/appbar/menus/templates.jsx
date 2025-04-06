@@ -1,11 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 import React from 'react'
-import { Box, Button, Divider, Menu, MenuItem } from '@mui/material'
-import Fade from '@mui/material/Fade'
+import { Box, Button, Divider, Menu, MenuItem, Fade, ListItemText, ListItemIcon} from '@mui/material'
 import { Check } from '@mui/icons-material'
-import ListItemText from '@mui/material/ListItemText'
-import ListItemIcon from '@mui/material/ListItemIcon'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 export default function TemplatesBar() {
@@ -27,7 +22,8 @@ export default function TemplatesBar() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-            endIcon={<ExpandMoreIcon />}>
+            endIcon={<ExpandMoreIcon />}
+            sx={{color: 'white'}}>
             Templates
           </Button>
           <Menu
