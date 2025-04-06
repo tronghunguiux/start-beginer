@@ -65,6 +65,7 @@ export default function BoardBar() {
                 borderColor: 'white',
                 borderStyle: 'solid',
                 cursor: 'pointer',
+                '&:first-of-type': {backgroundColor: '#a4b0be'}
               }
             }}
           >
