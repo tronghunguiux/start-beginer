@@ -1,17 +1,21 @@
 import { useState } from 'react'
 import ModeTheme from '~/layouts/mode-theme'
-import { Badge, Box, Button, TextField, Tooltip, Typography } from '@mui/material'
-import AppsIcon from '@mui/icons-material/Apps'
 import trelloLogo from '~/assets/trello.svg'
-import WorkspacesBar from '~/layouts/appbar/menus/workspaces'
+
 import RecentBar from '~/layouts/appbar/menus/recent'
 import StartedBar from '~/layouts/appbar/menus/started'
 import ProfileBar from '~/layouts/appbar/menus/profiles'
 import TemplatesBar from '~/layouts/appbar/menus/templates'
+import WorkspacesBar from '~/layouts/appbar/menus/workspaces'
+
+import { Badge, Box, Button, TextField, Tooltip, Typography } from '@mui/material'
+import InputAdornment from '@mui/material/InputAdornment';
+
+// import icons
+import AppsIcon from '@mui/icons-material/Apps'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useColorScheme } from '@mui/material/styles';
 

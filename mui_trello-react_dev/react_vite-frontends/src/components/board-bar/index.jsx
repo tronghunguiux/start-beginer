@@ -1,13 +1,12 @@
-import { Box, Button } from '@mui/material';
-import Chip from '@mui/material/Chip';
+
+import { Box, Button, Chip, Avatar,AvatarGroup, Tooltip } from '@mui/material';
+
+// import icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import VpnLockIcon from '@mui/icons-material/VpnLock';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import BoltIcon from '@mui/icons-material/Bolt';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
-import Tooltip from '@mui/material/Tooltip';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const CHIPTAG_STYLES = {
@@ -17,7 +16,7 @@ const CHIPTAG_STYLES = {
   backgroundColor: 'transparent',
   borderRadius: '4px',
   '.MuiSvgIcon-root': { color: 'white' },
-  '&:hover': { bgcolor: 'primary.50' }
+  '&:hover': { bgcolor: 'primary.50' },
 }
 const AVATAR_STYLES = {
   width: '34px', height: '34px', fontSize: '1rem', borderWidth: '1px', 
@@ -58,7 +57,15 @@ export default function BoardBar() {
             max={4}
             sx={{
               gap: '10px',
-              '& .MuiAvatar-root': AVATAR_STYLES
+              '& .MuiAvatar-root': {
+                width: '34px',
+                height: '34px',
+                fontSize: '1rem',
+                borderWidth: '1px',
+                borderColor: 'white',
+                borderStyle: 'solid',
+                cursor: 'pointer',
+              }
             }}
           >
             <Tooltip title="Remy Sharp">

@@ -1,11 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 import React from 'react'
-import { Box, Button, Divider, Menu, MenuItem, Typography } from '@mui/material'
-import Fade from '@mui/material/Fade'
-import { ContentCut, ContentCopy, ContentPaste, Cloud, Check } from '@mui/icons-material'
-import ListItemText from '@mui/material/ListItemText'
-import ListItemIcon from '@mui/material/ListItemIcon'
+import { Box, Button, Divider, Menu, MenuItem, Fade, ListItemText, ListItemIcon } from '@mui/material'
+
+import { Check } from '@mui/icons-material'
+
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 export default function RecentBar() {
