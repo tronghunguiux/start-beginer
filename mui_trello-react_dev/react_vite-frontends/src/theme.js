@@ -5,10 +5,14 @@ import { cyan, deepOrange, orange, red, teal } from '@mui/material/colors'
 import {experimental_extendTheme as extendTheme} from '@mui/material/styles'
 import { createTheme } from '@mui/material/styles'
 
+const APP_BAR_HEIGHT = '58px';
+const BOARD_BAR_HEIGHT = '60px';
+const BOARD_CONTENT_HEIGHT = `calc(100vh - (${APP_BAR_HEIGHT} + ${BOARD_BAR_HEIGHT}))`;
 const theme = extendTheme({
   trello: {
-    topBarHeight: '58px',
-    secondBarHeight: '60px'
+    topBarHeight: APP_BAR_HEIGHT,
+    secondBarHeight: BOARD_BAR_HEIGHT,
+    boardContentHeight: BOARD_CONTENT_HEIGHT,
   },
   cssVariables: true,
   colorSchemeSelector: 'class',
@@ -27,7 +31,7 @@ const theme = extendTheme({
     // }
   },
   components: { //custom override
-    MuiCssBaseline:{
+    MuiCssBaseline: {
       styleOverrides:{
         body: {
           '*::-webkit-scrollbar': {
@@ -53,7 +57,7 @@ const theme = extendTheme({
         }
       }
     },
-    MuiOutlinedInput:{
+    MuiOutlinedInput: {
       styleOverrides: {
         root: ({theme})=>{
           // console.log(theme) // Get value theme
@@ -76,12 +80,21 @@ const theme = extendTheme({
         }
       }
     },
-    MuiInputLabel:{
+    MuiInputLabel: {
       styleOverrides: {
         root: ({theme}) => ({
           // color: theme.palette.primary.main,
           fontSize: '.875rem'
         })
+      }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          '&.MuiTypography-body1': {
+            fontSize: '.875rem'
+          },
+        }
       }
     }
   }
