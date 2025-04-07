@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ModeTheme from '~/layouts/mode-theme'
+import ModeTheme from '~/layouts/mode-theme/mode-theme'
 import trelloLogo from '~/assets/trello.svg'
 
 import RecentBar from '~/layouts/appbar/menus/recent'
