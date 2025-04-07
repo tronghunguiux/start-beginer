@@ -8,11 +8,17 @@ import { createTheme } from '@mui/material/styles'
 const APP_BAR_HEIGHT = '58px';
 const BOARD_BAR_HEIGHT = '60px';
 const BOARD_CONTENT_HEIGHT = `calc(100vh - (${APP_BAR_HEIGHT} + ${BOARD_BAR_HEIGHT}))`;
+
+const COLUMN_H_HEADER = '50px';
+const COLUMN_H_FOOTER = '56px';
+
 const theme = extendTheme({
   trello: {
     topBarHeight: APP_BAR_HEIGHT,
     secondBarHeight: BOARD_BAR_HEIGHT,
     boardContentHeight: BOARD_CONTENT_HEIGHT,
+    columnHeaderHeight: COLUMN_H_HEADER,
+    columnFooterHeight: COLUMN_H_FOOTER,
   },
   cssVariables: true,
   colorSchemeSelector: 'class',
