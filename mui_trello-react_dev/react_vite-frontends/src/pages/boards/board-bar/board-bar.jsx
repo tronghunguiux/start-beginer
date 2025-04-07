@@ -8,7 +8,7 @@ import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import BoltIcon from '@mui/icons-material/Bolt';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-
+import { capitalizeFirstLetter as capitalString } from '~/utils/fortmatter';
 const CHIPTAG_STYLES = {
   color: 'white',
   paddingX: '5px',
@@ -22,7 +22,8 @@ const AVATAR_STYLES = {
   width: '34px', height: '34px', fontSize: '1rem', borderWidth: '1px', 
 }
 
-export default function BoardBar() {
+export default function BoardBar({board}) {
+
   return (
     <>
       {/* Second bar */}
@@ -38,9 +39,9 @@ export default function BoardBar() {
         backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
       }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-          <Chip icon={<DashboardIcon />} label={'dashboard icon'} onClick={() => ({})}
+          <Chip icon={<DashboardIcon />} label={board?.title} onClick={() => ({})}
             sx={CHIPTAG_STYLES} />
-          <Chip icon={<VpnLockIcon />} label={'public/private workspace'} onClick={() => ({})}
+          <Chip icon={<VpnLockIcon />} label={capitalString(board?.type)} onClick={() => ({})}
             sx={CHIPTAG_STYLES} />
           <Chip icon={<AddToDriveIcon />} label={'add to drive google'} onClick={() => ({})}
             sx={CHIPTAG_STYLES} />

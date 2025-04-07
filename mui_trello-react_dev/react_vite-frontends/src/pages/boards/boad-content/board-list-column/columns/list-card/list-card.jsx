@@ -9,7 +9,7 @@ import BoardCard from './card/card';
 // const COLUMN_H_HEADER = '50px';
 // const COLUMN_H_FOOTER = '56px';
 
-export default function ListCard() {
+export default function ListCard({cards}) {
   return (
     <>
       {/* List Card */}
@@ -24,22 +24,9 @@ export default function ListCard() {
         maxHeight: (theme) => `calc(${theme.trello.boardContentHeight} - 
               ${theme.spacing(5)} - ${theme.trello.columnHeaderHeight} - ${theme.trello.columnFooterHeight})`,
       }}>
-        <BoardCard/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
-        <BoardCard temporaryHeightMedia/>
+        {
+          cards?.map(card => (< BoardCard key={card._id} card={card}/>))
+        }
         {/* 
         <Card sx={{
           cursor: 'pointer',
