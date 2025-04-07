@@ -11,15 +11,19 @@ import GroupIcon from '@mui/icons-material/Group';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import ListCard from './list-card/list-card';
+import { mapOrder } from '~/utils/sorts'
 
 const COLUMN_H_HEADER = (theme) => (theme.trello.columnHeaderHeight);
 const COLUMN_H_FOOTER = (theme) => (theme.trello.columnFooterHeight);
 
-export default function BoardColumn() {
+export default function BoardColumn({column}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => { setAnchorEl(event.currentTarget) };
   const handleClose = () => { setAnchorEl(null) };
+
+    const orderCard = mapOrder(column?.cards, column?.cardOrderIds, '_id')
+  
   return (
     <>
       <Box sx={{
@@ -41,7 +45,7 @@ export default function BoardColumn() {
           justifyContent: 'center',
         }}>
           <Box sx={{ flex: '1 0 0' }}>
-            <Typography sx={{ fontWeight: 'bold', cursor: 'pointer' }}>Column Title</Typography>
+            <Typography sx={{ fontWeight: 'bold', cursor: 'pointer' }}>{column?.title}</Typography>
           </Box>
           <Box>
             <Tooltip title="More action" placement="top">
@@ -103,7 +107,7 @@ export default function BoardColumn() {
           </Box>
         </Box>
         {/* List Card */}
-        <ListCard/>
+        <ListCard cards={orderCard}/>
         {/* Footer */}
         <Box sx={{
           width: '100%',

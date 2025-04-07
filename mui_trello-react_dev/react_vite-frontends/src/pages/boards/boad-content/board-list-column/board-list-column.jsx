@@ -1,7 +1,8 @@
 import { Box, Button } from '@mui/material'
 import BoardColumn from './columns/columns';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
-export default function BoardListColumn() {
+
+export default function BoardListColumn({columns}) {
   return (
     <>
       <Box sx={{
@@ -12,8 +13,9 @@ export default function BoardListColumn() {
         overflowX: 'auto',
         overflowY: 'hidden',
       }}>
-        <BoardColumn/>
-        <BoardColumn/>
+        {
+          columns?.map(column => (<BoardColumn key={column._id} column={column}/>) )
+        }        
         <Box sx={{
             minWidth: '200px',
             maxWidth: '200px',
