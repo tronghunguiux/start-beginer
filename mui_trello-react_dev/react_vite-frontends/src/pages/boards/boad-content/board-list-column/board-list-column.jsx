@@ -1,10 +1,10 @@
 import { Box, Button } from '@mui/material'
 import BoardColumn from './columns/columns';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
-
+import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
 export default function BoardListColumn({columns}) {
   return (
-    <>
+    <SortableContext items={columns?.map(column => column?._id)} strategy={horizontalListSortingStrategy}>
       <Box sx={{
         backgroundColor: 'inherit',
         width: '100%',
@@ -36,6 +36,6 @@ export default function BoardListColumn({columns}) {
             </Button>
         </Box>
       </Box>
-    </>
+    </SortableContext>
   );
 }
