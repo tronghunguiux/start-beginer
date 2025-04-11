@@ -6,8 +6,20 @@ import { Card as MuiCard } from '@mui/material';
 import GroupIcon from '@mui/icons-material/Group';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import {useSortable} from '@dnd-kit/sortable';
+import {CSS} from '@dnd-kit/utilities';
 
 export default function BoardCard({card}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: card._id,
+    data: { ...card },
+  })
+    
+  const DndKitCarcStyles = {
+    transform: CSS.Translate.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : undefined,
+  }
 
   const shouldCardBeVisible = () => {
     return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length;
@@ -15,11 +27,13 @@ export default function BoardCard({card}) {
   return (
     <>
       {/* Card */}
-      <MuiCard sx={{
-        cursor: 'pointer',
-        boxShadow: 'none',
-        overflow: 'unset',
-      }}>
+      <MuiCard ref={setNodeRef} style={DndKitCarcStyles} {...attributes} {...listeners}
+        sx={{
+          cursor: 'pointer',
+          boxShadow: 'none',
+          overflow: 'unset',
+        }}
+      >
         {
           card?.cover && <CardMedia component="img" alt={card?.title} height="140" image={card?.cover} />
         }
@@ -52,24 +66,6 @@ export default function BoardCard({card}) {
           </CardActions>
         }
       </MuiCard>
-      {/* 
-        <Card sx={{
-          cursor: 'pointer',
-          boxShadow: 'none',
-          overflow: 'unset',
-        }}>
-          <CardContent sx={{
-            p: 1.5,
-            '&:last-child': {
-              paddingBottom: 1.5,
-            }
-          }}>
-            <Typography>
-              Lizard
-            </Typography>
-          </CardContent>
-        </Card>
-        */}
     </>
   );
 }

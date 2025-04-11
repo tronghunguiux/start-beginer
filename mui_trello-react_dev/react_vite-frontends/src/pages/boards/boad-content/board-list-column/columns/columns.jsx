@@ -15,15 +15,16 @@ const COLUMN_H_HEADER = (theme) => (theme.trello.columnHeaderHeight);
 const COLUMN_H_FOOTER = (theme) => (theme.trello.columnFooterHeight);
 
 export default function BoardColumn({column}) {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: column._id,
     data: { ...column },
   })
     
   const DndKitColumnStyles = {
-    touchAction: 'none',
     transform: CSS.Translate.toString(transform),
     transition,
+    height: '100%',
+    opacity: isDragging ? 0.5 : undefined,
   }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,7 +36,8 @@ export default function BoardColumn({column}) {
   
   return (
     <>
-      <Box ref={setNodeRef} style={DndKitColumnStyles} {...attributes} {...listeners} 
+    <div ref={setNodeRef} style={DndKitColumnStyles} {...attributes}>
+      <Box {...listeners} 
         sx={{
           backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#333643' : '#ebecf0'),
           minWidth: '300px',
@@ -138,6 +140,7 @@ export default function BoardColumn({column}) {
           </Tooltip>
         </Box>
       </Box>
+    </div>
     </>
   );
 }
